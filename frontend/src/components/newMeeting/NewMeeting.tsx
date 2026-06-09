@@ -8,6 +8,7 @@ import meetingService from "../../services/meetingService"
 
 export default function NewMeeting() {
     const [teams, setTeams] = useState<Team[]>([])
+    const [success, setSuccess] = useState(false)
 
     useEffect(() => {
         (async () => {
@@ -21,20 +22,21 @@ export default function NewMeeting() {
         )()
     }, [])
 
-    const { register, handleSubmit, getValues, formState: { errors } } = useForm<MeetingDraft>({ defaultValues: { teamId: '' } })
-
-    const navigate = useNavigate()
+    const { register, handleSubmit, getValues, reset, formState: { errors } } = useForm<MeetingDraft>({ defaultValues: { teamId: '' } })
 
     async function submit(draft: MeetingDraft) {
         try {
             await meetingService.newMeeting(draft)
-            navigate('/meetings')
+            reset({ teamId: '', description: '', room: '', startTime: undefined, endTime: undefined })
+            console.log(success)
         } catch (e) {
             alert(e)
         }
     }
+
     return (
         <div className="NewMeeting">
+            {success && <p style={{ color: 'green' }}>Meeting created successfully! you can create another one</p>}
             <form onSubmit={handleSubmit(submit)}>
                 <select defaultValue='' {...register('teamId', {
                     required: 'Please select a team',

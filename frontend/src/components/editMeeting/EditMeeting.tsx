@@ -23,9 +23,10 @@ export default function EditMeeting() {
                     teamId: meeting.teamId,
                     description: meeting.description,
                     room: meeting.room,
-                    startTime: meeting.startTime,
-                    endTime: meeting.endTime,
+                    startTime: new Date(meeting.startTime).toISOString().slice(0, 16) as any,
+                    endTime: new Date(meeting.endTime).toISOString().slice(0, 16) as any,
                 })
+
 
             } catch (e) {
                 alert(e)
