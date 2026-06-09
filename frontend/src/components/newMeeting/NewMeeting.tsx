@@ -3,7 +3,6 @@ import type Team from "../../models/Team"
 import teamService from "../../services/teamService"
 import { useForm } from "react-hook-form"
 import type MeetingDraft from "../../models/MeetingDraft"
-import { useNavigate } from "react-router-dom"
 import meetingService from "../../services/meetingService"
 
 export default function NewMeeting() {
@@ -28,7 +27,7 @@ export default function NewMeeting() {
         try {
             await meetingService.newMeeting(draft)
             reset({ teamId: '', description: '', room: '', startTime: undefined, endTime: undefined })
-            console.log(success)
+            setSuccess(true)
         } catch (e) {
             alert(e)
         }
@@ -36,7 +35,7 @@ export default function NewMeeting() {
 
     return (
         <div className="NewMeeting">
-            {success && <p style={{ color: 'green' }}>Meeting created successfully! you can create another one</p>}
+            {success && <p style={{ color: 'green' }}>Meeting created successfully! you can create another meeting</p>}
             <form onSubmit={handleSubmit(submit)}>
                 <select defaultValue='' {...register('teamId', {
                     required: 'Please select a team',
