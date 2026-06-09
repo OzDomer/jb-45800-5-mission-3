@@ -1,0 +1,64 @@
+.NewMeeting {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.NewMeeting h1 {
+    margin-bottom: 28px;
+}
+
+.NewMeeting form {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.NewMeeting input,
+.NewMeeting select {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    background: var(--bg);
+    color: var(--text-h);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.NewMeeting input:focus,
+.NewMeeting select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.NewMeeting .field-error {
+    color: #dc2626;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.NewMeeting button[type="submit"],
+.NewMeeting button {
+    margin-top: 12px;
+    padding: 10px 24px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.NewMeeting button:hover {
+    opacity: 0.85;
+}
+
+.success-msg {
+    color: #10b981;
+    font-weight: 600;
+    margin-bottom: 16px;
+    font-size: 15px;
+}

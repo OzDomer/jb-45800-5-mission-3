@@ -4,6 +4,7 @@ import meetingService from "../../services/meetingService"
 import type Meeting from "../../models/Meeting"
 import teamService from "../../services/teamService"
 import MeetingCard from "../meetingCard/MeetingCard"
+import './Meetings.css'
 
 export default function Meetings() {
 
@@ -35,14 +36,18 @@ export default function Meetings() {
     }
 
     return (
-        <>
-
-            <select defaultValue='' onChange={teamChanged}>
-                <option value="" selected disabled>please select a team</option>
+        <div className="Meetings">
+            <h1>Meetings</h1>
+            <select className="team-select" defaultValue='' onChange={teamChanged}>
+                <option value="" disabled>please select a team</option>
                 {teams.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
             </select>
-            {meetings.map(m => <MeetingCard key={m.id} meeting={m} onDelete={meetingDeleted} />)}
-
-        </>
+            <div className="meetings-list">
+                {meetings.length === 0
+                    ? <p className="meetings-empty">Select a team to see their meetings.</p>
+                    : meetings.map(m => <MeetingCard key={m.id} meeting={m} onDelete={meetingDeleted} />)
+                }
+            </div>
+        </div>
     )
 }

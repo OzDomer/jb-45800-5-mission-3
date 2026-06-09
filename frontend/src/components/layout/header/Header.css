@@ -1,0 +1,38 @@
+.header-brand {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-right: auto;
+    letter-spacing: -0.3px;
+}
+
+.Header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 32px;
+    height: 60px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+}
+
+.Header a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
+}
+
+.Header a:hover {
+    background: var(--accent-bg);
+    color: var(--accent);
+}
+
+.Header a.active {
+    background: var(--accent-bg);
+    color: var(--accent);
+    border: 1px solid var(--accent-border);
+}

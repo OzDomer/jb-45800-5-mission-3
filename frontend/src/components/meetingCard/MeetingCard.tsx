@@ -1,6 +1,7 @@
 import type Meeting from "../../models/Meeting"
 import { useNavigate } from "react-router-dom"
 import meetingService from "../../services/meetingService"
+import './MeetingCard.css'
 
 interface Props {
     meeting: Meeting
@@ -25,14 +26,16 @@ export default function MeetingCard({ meeting, onDelete }: Props) {
     }
 
     return (
-        <div style={{ backgroundColor: isFuture ? 'orange' : 'green' }}>
+        <div className={`MeetingCard ${isFuture ? 'future' : 'past'}`}>
             <h3>{meeting.room}</h3>
             <p>{meeting.description}</p>
             <p>Start: {new Date(meeting.startTime).toLocaleString()}</p>
             <p>End: {new Date(meeting.endTime).toLocaleString()}</p>
-            <p>Duration: {hours}h {minutes}m</p>
-            <button onClick={handleDelete}>Delete</button>
-            <button onClick={() => navigate(`/edit-meeting/${meeting.id}`)}>Edit</button>
+            <p className="duration">Duration: {hours}h {minutes}m</p>
+            <div className="card-actions">
+                <button className="btn-delete" onClick={handleDelete}>Delete</button>
+                <button className="btn-edit" onClick={() => navigate(`/edit-meeting/${meeting.id}`)}>Edit</button>
+            </div>
         </div>
     )
 }

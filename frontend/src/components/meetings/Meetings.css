@@ -1,0 +1,34 @@
+.Meetings h1 {
+    margin-bottom: 24px;
+}
+
+.Meetings .team-select {
+    width: 100%;
+    max-width: 360px;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    background: var(--bg);
+    color: var(--text-h);
+    margin-bottom: 32px;
+    cursor: pointer;
+    display: block;
+}
+
+.Meetings .team-select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.meetings-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.meetings-empty {
+    color: var(--text);
+    font-size: 15px;
+    margin-top: 8px;
+}

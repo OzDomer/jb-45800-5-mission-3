@@ -1,3 +1,4 @@
+import './NewMeeting.css'
 import { useEffect, useState } from "react"
 import type Team from "../../models/Team"
 import teamService from "../../services/teamService"
@@ -35,7 +36,8 @@ export default function NewMeeting() {
 
     return (
         <div className="NewMeeting">
-            {success && <p style={{ color: 'green' }}>Meeting created successfully! you can create another meeting</p>}
+            <h1>New Meeting</h1>
+            {success && <p className="success-msg">Meeting created successfully! You can add another.</p>}
             <form onSubmit={handleSubmit(submit)}>
                 <select defaultValue='' {...register('teamId', {
                     required: 'Please select a team',
@@ -44,7 +46,7 @@ export default function NewMeeting() {
                     <option value="" disabled>select a team</option>
                     {teams.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
                 </select>
-                {errors.teamId && <span>{errors.teamId.message}</span>}
+                {errors.teamId && <span className="field-error">{errors.teamId.message}</span>}
 
                 <input placeholder='Description' type="text" {...register('description', {
                     required: {
@@ -52,24 +54,24 @@ export default function NewMeeting() {
                         message: 'You must fill a descripition'
                     }
                 })} />
-                {errors.description && <span>{errors.description.message}</span>}
+                {errors.description && <span className="field-error">{errors.description.message}</span>}
                 <input placeholder='Room' type='text' {...register('room', {
                     required: {
                         value: true,
                         message: 'You must state the room for the meeting'
                     }
                 })} />
-                {errors.room && <span>{errors.room.message}</span>}
+                {errors.room && <span className="field-error">{errors.room.message}</span>}
                 <input type='datetime-local' {...register('startTime', {
                     required: 'Start time is required',
                     validate: v => new Date(v) > new Date() || 'Start time cannot be in the past'
                 })} />
-                {errors.startTime && <span>{errors.startTime.message}</span>}
+                {errors.startTime && <span className="field-error">{errors.startTime.message}</span>}
                 <input type='datetime-local' {...register('endTime', {
                     required: 'End time is required',
                     validate: v => new Date(v) > new Date(getValues('startTime')) || 'End time must be after start time'
                 })} />
-                {errors.endTime && <span>{errors.endTime.message}</span>}
+                {errors.endTime && <span className="field-error">{errors.endTime.message}</span>}
                 <button>Create meeting</button>
 
             </form>

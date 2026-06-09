@@ -1,3 +1,4 @@
+import './EditMeeting.css'
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useNavigate, useParams } from "react-router-dom"
@@ -45,23 +46,24 @@ export default function EditMeeting() {
 
     return (
         <div className="EditMeeting">
+            <h1>Edit Meeting</h1>
             <form onSubmit={handleSubmit(submit)}>
                 <select {...register('teamId', { required: 'Please select a team' })}>
                     <option value="" disabled>select a team</option>
                     {teams.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
                 </select>
-                {errors.teamId && <span>{errors.teamId.message}</span>}
+                {errors.teamId && <span className="field-error">{errors.teamId.message}</span>}
                 <input placeholder='Description' type="text" {...register('description', { required: 'Description is required' })} />
-                {errors.description && <span>{errors.description.message}</span>}
+                {errors.description && <span className="field-error">{errors.description.message}</span>}
                 <input placeholder='Room' type='text' {...register('room', { required: 'Room is required' })} />
-                {errors.room && <span>{errors.room.message}</span>}
+                {errors.room && <span className="field-error">{errors.room.message}</span>}
                 <input type='datetime-local' {...register('startTime', { required: 'Start time is required' })} />
-                {errors.startTime && <span>{errors.startTime.message}</span>}
+                {errors.startTime && <span className="field-error">{errors.startTime.message}</span>}
                 <input type='datetime-local' {...register('endTime', {
                     required: 'End time is required',
                     validate: v => new Date(v) > new Date(getValues('startTime')) || 'End time must be after start time'
                 })} />
-                {errors.endTime && <span>{errors.endTime.message}</span>}
+                {errors.endTime && <span className="field-error">{errors.endTime.message}</span>}
 
                 <button>Update meeting</button>
             </form>

@@ -1,0 +1,8 @@
+.Footer {
+    border-top: 1px solid var(--border);
+    padding: 20px 32px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text);
+    margin-top: auto;
+}

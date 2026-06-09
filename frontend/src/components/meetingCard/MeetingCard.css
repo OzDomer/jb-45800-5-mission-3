@@ -1,0 +1,69 @@
+.MeetingCard {
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.MeetingCard.future {
+    background-color: #fde68a;
+    border-left: 6px solid #d97706;
+}
+
+.MeetingCard.past {
+    background-color: #6ee7b7;
+    border-left: 6px solid #059669;
+}
+
+.MeetingCard h3 {
+    margin: 0 0 4px;
+    font-size: 18px;
+    color: #111;
+}
+
+.MeetingCard p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.MeetingCard .duration {
+    font-size: 13px;
+    font-weight: 600;
+    color: #888;
+    margin-top: 4px;
+}
+
+.MeetingCard .card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.MeetingCard button {
+    padding: 6px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: opacity 0.15s;
+}
+
+.MeetingCard button:hover {
+    opacity: 0.75;
+}
+
+.btn-delete {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.btn-edit {
+    background: #e0e7ff;
+    color: #4338ca;
+}

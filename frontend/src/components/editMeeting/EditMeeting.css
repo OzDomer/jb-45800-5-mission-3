@@ -1,0 +1,57 @@
+.EditMeeting {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.EditMeeting h1 {
+    margin-bottom: 28px;
+}
+
+.EditMeeting form {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.EditMeeting input,
+.EditMeeting select {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    background: var(--bg);
+    color: var(--text-h);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.EditMeeting input:focus,
+.EditMeeting select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.EditMeeting .field-error {
+    color: #dc2626;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.EditMeeting button[type="submit"],
+.EditMeeting button {
+    margin-top: 12px;
+    padding: 10px 24px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.EditMeeting button:hover {
+    opacity: 0.85;
+}
